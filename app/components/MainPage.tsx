@@ -8,8 +8,9 @@ const MainPage = () => {
   return (
     <div>
       Main
-      {currency.from}
-      {currency.to}
+      {currency.map((item) => (
+        <ul key={item.currency}>{item.currency}</ul>
+      ))}
     </div>
   );
 };
