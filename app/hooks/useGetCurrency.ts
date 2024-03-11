@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { API, RATES_BASE_VALUE } from '../constants/constants';
 import axios from 'axios';
 import { IRate } from '../models/IRate';
-import { IResponse } from '../models/IResonse';
+import { IResponse } from '../models/IResponse';
 
 export const useGetCurrency = () => {
   const [currency, setCurrency] = useState<IRate[]>(RATES_BASE_VALUE);
