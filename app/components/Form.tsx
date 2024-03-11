@@ -7,17 +7,16 @@ import { useAtom } from 'jotai';
 import { fromAtom, inputAtom, resultAtom, toAtom } from '../store/atoms';
 
 const Form = () => {
-  const [to] = useAtom(toAtom);
-  const [from] = useAtom(fromAtom);
+  const [to, setTo] = useAtom(toAtom);
+  const [from, setFrom] = useAtom(fromAtom);
   const [input, setInput] = useAtom(inputAtom);
   const [, setResult] = useAtom(resultAtom);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const calcuateValues = to / from;
+    const calcuateValues = to.value / from.value;
     const currencyResult = calcuateValues * input;
-    setResult(Math.ceil(currencyResult));
-    setInput(0);
+    setResult(Math.round(currencyResult * 100) / 100);
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -28,11 +27,11 @@ const Form = () => {
     <form onSubmit={handleSubmit}>
       <label htmlFor='input'>Select amount</label>
       <input type='number' min={0} value={input} onChange={handleInputChange} />
-
       <ValueFrom />
-
       <ValueTo />
-      <button>Submit</button>
+      <button disabled={!input || !to || !from} className='btn btn-primary'>
+        Submit
+      </button>
     </form>
   );
 };

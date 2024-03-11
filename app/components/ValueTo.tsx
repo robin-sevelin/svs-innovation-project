@@ -4,7 +4,6 @@ import React, { ChangeEvent } from 'react';
 import { useGetCurrency } from '../hooks/useGetCurrency';
 import { useAtom } from 'jotai';
 import { toAtom } from '../store/atoms';
-import { IRate } from '../models/IRate';
 
 const ValueTo = () => {
   const { currency } = useGetCurrency();
@@ -15,7 +14,11 @@ const ValueTo = () => {
     const filteredCurrency = currency.filter(
       (value) => value.currency === selectedCurrency
     );
-    setTo(filteredCurrency[0].value);
+    filteredCurrency[0].value;
+    setTo({
+      currency: filteredCurrency[0].currency,
+      value: Math.round(filteredCurrency[0].value * 100) / 100,
+    });
   };
 
   return (

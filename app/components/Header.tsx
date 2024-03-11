@@ -2,8 +2,8 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header>
-      <h1>My page</h1>
+    <header className='navbar bg-base-100'>
+      <a className='btn btn-ghost text-xl'>Currency Converter</a>
     </header>
   );
 };

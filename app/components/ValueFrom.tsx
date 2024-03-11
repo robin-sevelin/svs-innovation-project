@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent } from 'react';
 import { useGetCurrency } from '../hooks/useGetCurrency';
 import { useAtom } from 'jotai';
 import { fromAtom } from '../store/atoms';
@@ -14,7 +14,12 @@ const ValueFrom = () => {
     const filteredCurrency = currency.filter(
       (value) => value.currency === selectedCurrency
     );
-    setFrom(filteredCurrency[0].value);
+
+    filteredCurrency[0].value;
+    setFrom({
+      currency: filteredCurrency[0].currency,
+      value: Math.round(filteredCurrency[0].value * 100) / 100,
+    });
   };
 
   return (
