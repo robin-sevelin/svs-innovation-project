@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
-import { API } from '../constants/constants';
+import { API, RATES_BASE_VALUE } from '../constants/constants';
 import axios from 'axios';
 import { IRate } from '../models/IRate';
 import { IResponse } from '../models/IResonse';
 
 export const useGetCurrency = () => {
-  const [currency, setCurrency] = useState<IRate[]>([]);
+  const [currency, setCurrency] = useState<IRate[]>(RATES_BASE_VALUE);
 
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get<IResponse>(API);
 
-        const ratesArray = Object.entries(response.data.rates).map(
+        const ratesArray: IRate[] = Object.entries(response.data.rates).map(
           ([currency, value]) => ({
             currency,
-            value,
+            value: Number(value),
           })
         );
         setCurrency(ratesArray);
