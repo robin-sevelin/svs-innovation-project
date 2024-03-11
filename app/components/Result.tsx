@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { fromAtom, resultAtom, toAtom } from '../store/atoms';
 import { useAtom } from 'jotai';
