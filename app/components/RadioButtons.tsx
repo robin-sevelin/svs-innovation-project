@@ -7,7 +7,7 @@ import { viewAtom } from '../store/atoms';
 const RadioButtons = () => {
   const [view, setView] = useAtom(viewAtom);
   return (
-    <div className='join flex'>
+    <div className='join flex w-[900px]  justify-center py-5'>
       <input
         checked={view === 'table'}
         onClick={() => setView('table')}

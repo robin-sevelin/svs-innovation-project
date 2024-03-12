@@ -14,9 +14,16 @@ const MainPage = () => {
 
   return (
     <>
+      {}
       <Form />
       {isSubmitted && <RadioButtons />}
-      {isSubmitted && view === 'table' ? <Table /> : isSubmitted && <Result />}
+      <section className='flex w-[900px]  flex-col relative top-6 '>
+        {isSubmitted && view === 'table' ? (
+          <Table />
+        ) : (
+          isSubmitted && <Result />
+        )}
+      </section>
     </>
   );
 };

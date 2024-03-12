@@ -4,16 +4,22 @@ import { useGetCurrency } from '../hooks/useGetCurrency';
 import { useAtom } from 'jotai';
 import { fromAtom } from '../store/atoms';
 import { IRate } from '../models/IRate';
+import Loading from './Loading';
 
 const ValueFrom = () => {
   const { currency } = useGetCurrency();
   const [, setFrom] = useAtom(fromAtom);
+  console.log(currency);
 
   const handleClick = (item: IRate) => {
     setFrom({
       currency: item.currency,
       value: Math.round(item.value * 100) / 100,
     });
+
+    if (!currency) {
+      return <Loading />;
+    }
 
     const dropdown = document.getElementById('dropdown');
     if (dropdown) {

@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 main {
-  @apply max-w-[900px] m-auto relative top-[100px];
+  @apply max-w-[980px] m-auto  min-h-[calc(100vh)]  p-5 rounded-xl bg-base-100 mt-10;
 }

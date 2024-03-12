@@ -4,6 +4,7 @@ import { useGetCurrency } from '../hooks/useGetCurrency';
 import { useAtom } from 'jotai';
 import { toAtom } from '../store/atoms';
 import { IRate } from '../models/IRate';
+import Loading from './Loading';
 
 const ValueTo = () => {
   const { currency } = useGetCurrency();
@@ -20,6 +21,10 @@ const ValueTo = () => {
       dropdown.removeAttribute('open');
     }
   };
+
+  if (!currency) {
+    return <Loading />;
+  }
 
   return (
     <details className='dropdown' id='dropdown-to'>

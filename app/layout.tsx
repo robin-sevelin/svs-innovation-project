@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
 import { Provider } from 'jotai';
+import ThemeWrapper from './contexts/ThemeWrapper';
+import ThemeProvider from './contexts/ThemeContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,8 +22,12 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <Provider>
-          <Header />
-          <main>{children}</main>
+          <ThemeProvider>
+            <ThemeWrapper>
+              <Header />
+              <main>{children}</main>
+            </ThemeWrapper>
+          </ThemeProvider>
         </Provider>
       </body>
     </html>

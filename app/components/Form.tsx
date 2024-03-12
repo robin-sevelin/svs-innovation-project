@@ -32,7 +32,7 @@ const Form = () => {
   };
 
   return (
-    <section className='py-5 flex flex-col justify-center items-center w-[900px]'>
+    <section className='py-5 flex flex-col justify-center items-center w-[900px] '>
       <h2>
         From: {from.currency} to {to.currency}
       </h2>
