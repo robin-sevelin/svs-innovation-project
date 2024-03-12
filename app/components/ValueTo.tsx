@@ -29,7 +29,7 @@ const ValueTo = () => {
   return (
     <details className='dropdown' id='dropdown-to'>
       <summary className='m-1 btn'>To</summary>
-      <ul className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 h-[900px]'>
+      <ul className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-[900px] h-[500px] ml-[-100px]'>
         {currency.map((item) => (
           <li
             key={item.currency}

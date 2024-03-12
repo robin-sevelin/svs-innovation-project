@@ -2,7 +2,7 @@ import React from 'react';
 
 const HeroPage = () => {
   return (
-    <div className='hero bg-base-100 '>
+    <div className='hero bg-base-200 '>
       <div className='hero-content text-center'>
         <div className='max-w-md'>
           <h1 className='text-5xl font-bold'>Hello there</h1>

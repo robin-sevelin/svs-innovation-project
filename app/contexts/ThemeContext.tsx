@@ -12,11 +12,7 @@ interface ProviderProps {
   children: ReactNode;
 }
 
-const storedTheme = localStorage.getItem('theme');
-
-export const ThemeContext = createContext<ContextProps>({
-  theme: JSON.stringify(storedTheme),
-});
+export const ThemeContext = createContext<ContextProps>({ theme: 'dark' });
 
 const ThemeProvider = ({ children }: ProviderProps) => {
   const [theme] = useAtom(themeAtom);

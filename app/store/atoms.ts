@@ -7,4 +7,4 @@ export const toAtom = atom(RATE_BASE_VALUE);
 export const resultAtom = atom(0);
 export const submitAtom = atom(false);
 export const viewAtom = atom('table');
-export const themeAtom = atom('dark');
+export const themeAtom = atom('acid');

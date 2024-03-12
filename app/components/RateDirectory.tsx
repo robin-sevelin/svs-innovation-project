@@ -21,7 +21,6 @@ const RatesDirectory = () => {
     <div>
       <section className='flex flex-col justify-center items-center py-5'>
         <div className='overflow-x-auto'>
-          <h3>Table</h3>
           <table className='table'>
             <thead>
               <tr>

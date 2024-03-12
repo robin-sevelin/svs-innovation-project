@@ -14,7 +14,6 @@ const MainPage = () => {
 
   return (
     <>
-      {}
       <Form />
       {isSubmitted && <RadioButtons />}
       <section className='flex w-[900px]  flex-col relative top-6 '>

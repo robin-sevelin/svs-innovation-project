@@ -32,7 +32,7 @@ const Form = () => {
   };
 
   return (
-    <section className='py-5 flex flex-col justify-center items-center w-[900px] '>
+    <section className='py-5 flex flex-col justify-center items-center  '>
       <h2>
         From: {from.currency} to {to.currency}
       </h2>
@@ -45,11 +45,13 @@ const Form = () => {
           value={input}
           onChange={handleInputChange}
         />
-        <div className='flex justify-between'>
+        <div className='flex justify-between py-5'>
           <fieldset>
             Select national currency
-            <ValueFrom />
-            <ValueTo />
+            <div className='flex justify-between'>
+              <ValueFrom />
+              <ValueTo />
+            </div>
           </fieldset>
         </div>
         <button disabled={!to.value || !from.value} className='btn btn-primary'>
