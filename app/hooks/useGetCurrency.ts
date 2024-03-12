@@ -11,7 +11,6 @@ export const useGetCurrency = () => {
     const getData = async () => {
       try {
         const response = await axios.get<IResponse>(API);
-
         const ratesArray: IRate[] = Object.entries(response.data.rates).map(
           ([currency, value]) => ({
             currency,

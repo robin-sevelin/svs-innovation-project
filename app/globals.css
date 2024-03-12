@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main {
+  @apply max-w-[900px] m-auto relative top-[100px];
+}

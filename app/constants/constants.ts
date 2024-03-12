@@ -8,3 +8,5 @@ export const RATE_BASE_VALUE = {
 };
 
 export const RATES_BASE_VALUE: IRate[] = [];
+
+export const IMAGE = '/rates.avif';
