@@ -18,42 +18,37 @@ const RatesDirectory = () => {
   };
 
   return (
-    <div>
-      <section className='flex flex-col justify-center items-center py-5'>
-        <div className='overflow-x-auto'>
-          <table className='table'>
-            <thead>
-              <tr>
-                <th>Currency</th>
-                <th>Full Name</th>
+    <section>
+      <div className='overflow-x-auto'>
+        <table className='table'>
+          <thead>
+            <tr>
+              <th>Currency</th>
+              <th>Full Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentRates.map((rate) => (
+              <tr key={rate.currency}>
+                <td>{rate.currency}</td>
+                <td>{rate.fullName}</td>
               </tr>
-            </thead>
-            <tbody>
-              {currentRates.map((rate) => (
-                <tr key={rate.currency}>
-                  <td>{rate.currency}</td>
-                  <td>{rate.fullName}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className='pagination flex  w-[200px] justify-evenly'>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index + 1}
-              onClick={() => handlePageChange(index + 1)}
-              className={
-                currentPage === index + 1 ? 'active font-extrabold' : ''
-              }
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
-      </section>
-    </div>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className='pagination flex  w-[200px] justify-evenly'>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={currentPage === index + 1 ? 'active font-extrabold' : ''}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
+    </section>
   );
 };
 

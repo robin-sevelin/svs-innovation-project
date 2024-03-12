@@ -4,15 +4,13 @@ import { FOOTER_NAV_IMGS } from '../constants/constants';
 import Link from 'next/link';
 import React from 'react';
 
-import { useAtom } from 'jotai';
-
 const Footer = () => {
   return (
     <footer>
       <div className='flex gap-5'>
         {FOOTER_NAV_IMGS.map((img) => (
           <Link href={img.url} key={img.id} target='blank'>
-            <picture className='shadow-2xl bg-white flex-col justify-center items-center  flex rounded-full  p-3'>
+            <picture>
               <img
                 src={img.src}
                 alt={img.alt}

@@ -10,7 +10,7 @@ const Table = () => {
   const [to] = useAtom(toAtom);
 
   return (
-    <section className='flex flex-col justify-center items-center py-5'>
+    <section>
       <div className='overflow-x-auto'>
         <h3>Table</h3>
         <table className='table'>

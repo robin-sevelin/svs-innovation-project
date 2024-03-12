@@ -1,15 +1,14 @@
 'use client';
 
-import { useGetCurrency } from '../hooks/useGetCurrency';
 import { useAtom } from 'jotai';
 import { fromAtom } from '../store/atoms';
 import { IRate } from '../models/IRate';
 import Loading from './Loading';
+import { useGetCurrencyList } from '../hooks/useGetCurrencyList';
 
 const ValueFrom = () => {
-  const { currency } = useGetCurrency();
+  const { sortedGroups, groupedCurrencies } = useGetCurrencyList();
   const [, setFrom] = useAtom(fromAtom);
-  console.log(currency);
 
   const handleClick = (item: IRate) => {
     setFrom({
@@ -17,7 +16,7 @@ const ValueFrom = () => {
       value: Math.round(item.value * 100) / 100,
     });
 
-    if (!currency) {
+    if (!sortedGroups) {
       return <Loading />;
     }
 
@@ -29,15 +28,24 @@ const ValueFrom = () => {
 
   return (
     <details className='dropdown' id='dropdown'>
-      <summary className='m-1 btn'>From</summary>
-      <ul className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-[900px] h-[500px] ml-[-500px]'>
-        {currency.map((item) => (
-          <li
-            key={item.currency}
-            value={item.currency}
-            onClick={() => handleClick(item)}
-          >
-            <a> {item.currency}</a>
+      <summary className='m-1 btn w-20'>From</summary>
+      <ul className='menu bg-base-200 w-56 rounded-box'>
+        {sortedGroups.map((letter) => (
+          <li key={letter}>
+            <details className='menu-item'>
+              <summary className='group-header'>{letter}</summary>
+              <ul>
+                {groupedCurrencies[letter].map((currency) => (
+                  <li
+                    key={currency.currency}
+                    value={currency.currency}
+                    onClick={() => handleClick(currency)}
+                  >
+                    <a className='menu-item'>{currency.currency}</a>
+                  </li>
+                ))}
+              </ul>
+            </details>
           </li>
         ))}
       </ul>
