@@ -9,7 +9,7 @@ const ThemeController = () => {
   const [isChecked, setChecked] = useState(currentTheme === 'dark');
 
   const handleToggle = () => {
-    const newTheme = isChecked ? 'light' : 'dark';
+    const newTheme = isChecked ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('selectedTheme', newTheme);
     setChecked(!isChecked);
@@ -19,7 +19,7 @@ const ThemeController = () => {
     const savedTheme = localStorage.getItem('selectedTheme');
     if (savedTheme && savedTheme !== currentTheme) {
       setTheme(savedTheme);
-      setChecked(savedTheme === 'dark');
+      setChecked(savedTheme === 'light');
     }
   }, [currentTheme, setTheme]);
 
