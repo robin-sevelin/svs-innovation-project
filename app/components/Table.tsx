@@ -10,23 +10,26 @@ const Table = () => {
   const [to] = useAtom(toAtom);
 
   return (
-    <div className='overflow-x-auto'>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>{from.currency}</th>
-            <th>{to.currency}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{from.value}</td>
-            <td>{to.value}</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <section className='flex flex-col justify-center items-center py-5'>
+      <div className='overflow-x-auto'>
+        <h3>Table</h3>
+        <table className='table'>
+          <thead>
+            <tr>
+              <th>{from.currency}</th>
+              <th>{to.currency}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{from.value}</td>
+              <td>{to.value}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 };
 

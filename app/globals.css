@@ -3,5 +3,13 @@
 @tailwind utilities;
 
 main {
-  @apply max-w-[900px] m-auto relative top-[100px];
+  @apply max-w-[980px] m-auto  min-h-[calc(100vh-200px)]  p-5 rounded-xl bg-base-100 mt-10;
+}
+
+.theme-dropdown {
+  @apply shadow menu dropdown-content relative z-[999] bg-base-100 rounded-box max-h-[600px] w-[230px]  overflow-y-scroll;
+}
+
+footer {
+  @apply flex justify-center flex-col bg-base-300 items-center gap-5 py-5 absolute w-full mb-0;
 }
