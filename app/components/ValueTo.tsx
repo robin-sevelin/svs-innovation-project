@@ -28,7 +28,7 @@ const ValueTo = () => {
 
   return (
     <details className='dropdown' id='dropdown'>
-      <summary className='m-1 btn w-20'>From</summary>
+      <summary className='m-1 btn w-20'>To</summary>
       <ul className='menu bg-base-200 w-56 rounded-box'>
         {sortedGroups.map((letter) => (
           <li key={letter}>
