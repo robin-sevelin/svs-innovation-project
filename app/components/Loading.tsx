@@ -1,12 +1,7 @@
 import React from 'react';
 
 const Loading = () => {
-  return (
-    <div>
-      Loading
-      <span className='loading loading-infinity loading-lg'></span>
-    </div>
-  );
+  return <span className='loading loading-infinity loading-lg'></span>;
 };
 
 export default Loading;

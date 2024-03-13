@@ -11,7 +11,7 @@ const Result = () => {
   const [input] = useAtom(inputAtom);
 
   return (
-    <section className='flex flex-col justify-center items-center py-5'>
+    <section>
       <h3 className='mb-5'>Result</h3>
       <p>
         {input} {from.currency} is {result} {to.currency}

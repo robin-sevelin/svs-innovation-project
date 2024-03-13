@@ -32,8 +32,8 @@ const Form = () => {
   };
 
   return (
-    <section className='py-5 flex flex-col justify-center items-center  '>
-      <h2>
+    <section>
+      <h2 className='font-bold py-5'>
         From: {from.currency} to {to.currency}
       </h2>
       <form onSubmit={handleSubmit}>
