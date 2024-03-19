@@ -2,54 +2,41 @@
 
 import { useAtom } from 'jotai';
 import { toAtom } from '../store/atoms';
-import { IRate } from '../models/IRate';
-import Loading from './Loading';
-import { useGetCurrencyList } from '../hooks/useGetCurrencyList';
+import { useGetCurrency } from '../hooks/useGetCurrency';
+import { ChangeEvent } from 'react';
 
 const ValueTo = () => {
-  const { sortedGroups, groupedCurrencies } = useGetCurrencyList();
+  const { currency } = useGetCurrency();
   const [, setTo] = useAtom(toAtom);
 
-  const handleClick = (item: IRate) => {
-    setTo({
-      currency: item.currency,
-      value: Math.round(item.value * 100) / 100,
-    });
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const foundCurrency = currency.find(
+      (rate) => rate.currency === e.target.value
+    );
 
-    const dropdown = document.getElementById('dropdown-to');
-    if (dropdown) {
-      dropdown.removeAttribute('open');
+    if (foundCurrency) {
+      setTo({
+        currency: foundCurrency.currency,
+        value: Math.round(foundCurrency.value * 100) / 100,
+      });
     }
   };
 
-  if (!sortedGroups) {
-    return <Loading />;
-  }
-
   return (
-    <details className='dropdown' id='dropdown'>
-      <summary className='m-1 btn w-20'>To</summary>
-      <ul className='menu bg-base-200 w-56 rounded-box'>
-        {sortedGroups.map((letter) => (
-          <li key={letter}>
-            <details className='menu-item'>
-              <summary className='group-header'>{letter}</summary>
-              <ul>
-                {groupedCurrencies[letter].map((currency) => (
-                  <li
-                    key={currency.currency}
-                    value={currency.currency}
-                    onClick={() => handleClick(currency)}
-                  >
-                    <a className='menu-item'>{currency.currency}</a>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          </li>
-        ))}
-      </ul>
-    </details>
+    <select
+      className='dropdown'
+      id='dropdown-to'
+      onChange={(e) => handleChange(e)}
+    >
+      <option className='m-1 btn w-20' disabled>
+        From
+      </option>
+      {currency.map((currency) => (
+        <option key={currency.currency} value={currency.currency}>
+          {currency.currency}
+        </option>
+      ))}
+    </select>
   );
 };
 

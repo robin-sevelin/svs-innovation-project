@@ -2,7 +2,6 @@
 
 import React, { ChangeEvent, FormEvent } from 'react';
 import ValueFrom from './ValueFrom';
-import ValueTo from './ValueTo';
 import { useAtom } from 'jotai';
 import {
   fromAtom,
@@ -11,6 +10,7 @@ import {
   submitAtom,
   toAtom,
 } from '../store/atoms';
+import ValueTo from './ValueTo';
 
 const Form = () => {
   const [to] = useAtom(toAtom);
@@ -33,9 +33,6 @@ const Form = () => {
 
   return (
     <section>
-      <h2 className='font-bold py-5'>
-        From: {from.currency} to {to.currency}
-      </h2>
       <form onSubmit={handleSubmit}>
         <fieldset>Select amount</fieldset>
         <input
@@ -54,9 +51,7 @@ const Form = () => {
             </div>
           </fieldset>
         </div>
-        <button disabled={!to.value || !from.value} className='btn btn-primary'>
-          Submit
-        </button>
+        <button className='btn btn-primary'>Submit</button>
       </form>
     </section>
   );

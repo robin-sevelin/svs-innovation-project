@@ -22,7 +22,7 @@ export const useGetCurrencyList = () => {
     disabled?: boolean;
   }[] = [];
   sortedGroups.forEach((letter: string) => {
-    dropdownOptions.push({ label: letter, disabled: true }); // Add letter as disabled option
+    dropdownOptions.push({ label: letter, disabled: true });
     groupedCurrencies[letter].forEach((currency: IRate) => {
       dropdownOptions.push({
         label: `(${currency.currency})`,
