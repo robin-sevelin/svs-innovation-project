@@ -4,6 +4,7 @@ import { useAtom } from 'jotai';
 import { toAtom } from '../store/atoms';
 import { useGetCurrency } from '../hooks/useGetCurrency';
 import { ChangeEvent } from 'react';
+import Loading from './Loading';
 
 const ValueTo = () => {
   const { currency } = useGetCurrency();
@@ -22,6 +23,10 @@ const ValueTo = () => {
     }
   };
 
+  if (!currency) {
+    return <Loading />;
+  }
+
   return (
     <label htmlFor='dropdown-to'>
       To
@@ -30,9 +35,6 @@ const ValueTo = () => {
         id='dropdown-to'
         onChange={(e) => handleChange(e)}
       >
-        <option className='m-1 btn w-20' disabled>
-          From
-        </option>
         {currency.map((currency) => (
           <option key={currency.currency} value={currency.currency}>
             {currency.currency}

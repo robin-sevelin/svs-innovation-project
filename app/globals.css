@@ -25,3 +25,8 @@ section {
 picture {
   @apply shadow-2xl bg-white flex-col justify-center items-center  flex rounded-full  p-3;
 }
+
+li {
+  float: right;
+  margin-right: 2rem;
+}

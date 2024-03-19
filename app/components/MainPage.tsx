@@ -11,6 +11,7 @@ const MainPage = () => {
 
   return (
     <>
+      {}
       <Form />
       <section className='flex flex-col relative top-6 '>
         {isSubmitted && <Result />}
