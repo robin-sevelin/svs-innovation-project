@@ -23,20 +23,23 @@ const ValueTo = () => {
   };
 
   return (
-    <select
-      className='dropdown'
-      id='dropdown-to'
-      onChange={(e) => handleChange(e)}
-    >
-      <option className='m-1 btn w-20' disabled>
-        From
-      </option>
-      {currency.map((currency) => (
-        <option key={currency.currency} value={currency.currency}>
-          {currency.currency}
+    <label htmlFor='dropdown-to'>
+      To
+      <select
+        className='select select-bordered w-full max-w-xs'
+        id='dropdown-to'
+        onChange={(e) => handleChange(e)}
+      >
+        <option className='m-1 btn w-20' disabled>
+          From
         </option>
-      ))}
-    </select>
+        {currency.map((currency) => (
+          <option key={currency.currency} value={currency.currency}>
+            {currency.currency}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 };
 
