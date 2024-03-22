@@ -1,7 +1,7 @@
 'use client';
 
 import { useAtom } from 'jotai';
-import { fromAtom } from '../store/atoms';
+import { fromAtom, submitAtom } from '../store/atoms';
 import { useGetCurrency } from '../hooks/useGetCurrency';
 import { ChangeEvent } from 'react';
 import Loading from './Loading';
@@ -9,11 +9,13 @@ import Loading from './Loading';
 const ValueFrom = () => {
   const { currency } = useGetCurrency();
   const [, setFrom] = useAtom(fromAtom);
+  const [, setIsSubmitted] = useAtom(submitAtom);
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const foundCurrency = currency.find(
       (rate) => rate.currency === e.target.value
     );
+    setIsSubmitted(false);
 
     if (foundCurrency) {
       setFrom({
@@ -35,6 +37,7 @@ const ValueFrom = () => {
         id='dropdown-from'
         onChange={(e) => handleChange(e)}
       >
+        <option value={''}></option>
         {currency.map((currency) => (
           <option key={currency.currency} value={currency.currency}>
             {currency.currency}

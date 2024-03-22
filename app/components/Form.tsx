@@ -51,7 +51,10 @@ const Form = () => {
             </div>
           </fieldset>
         </div>
-        <button className='btn btn-primary' disabled={!from || !to || !input}>
+        <button
+          className='btn btn-primary'
+          disabled={!from.value || !to.value || !input}
+        >
           Submit
         </button>
       </form>
